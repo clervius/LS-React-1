@@ -1,2 +1,52 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,500');
+$br: 5px;
+$shadow: 0 8px 17px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+$roboto: 'Roboto', sans-serif;
+$robotoSlab: 'Roboto Slab', serif;
+html {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+12,f9f9f9+12,e0dede+100 */
+	background: #f9f9f9; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #f9f9f9 12%, #f9f9f9 12%, #e0dede 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover,  #f9f9f9 12%,#f9f9f9 12%,#e0dede 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center,  #f9f9f9 12%,#f9f9f9 12%,#e0dede 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e0dede',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:100%;
+}
+.container {
+	width:500px;
+	margin:0 auto;
+}
+h1 {
+	color: rgba(0,0,0,.6);
+	font-family: $robotoSlab;
+	font-weight: bold;
+}
+.todoWrapper {
+	width:90%;
+	margin:100px auto 0;
+
+	.todoHeader {
+		border-top-right-radius: $br;
+		border-top-left-radius: $br;
+		height:5px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#54cde5+0,b453db+51,b453db+51,b453db+70,b453db+83 */
+		background: #54cde5; /* Old browsers */
+		background: -moz-linear-gradient(-45deg,  #54cde5 0%, #b453db 51%, #b453db 51%, #b453db 70%, #b453db 83%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(-45deg,  #54cde5 0%,#b453db 51%,#b453db 51%,#b453db 70%,#b453db 83%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(135deg,  #54cde5 0%,#b453db 51%,#b453db 51%,#b453db 70%,#b453db 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54cde5', endColorstr='#b453db',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		margin-bottom:10px;
+		box-shadow: $shadow;
+	}
+	.todoContainer {
+		background-color:white;
+		border-bottom-left-radius: $br;
+		border-bottom-right-radius: $br;
+		box-shadow: $shadow;
+		padding:15px;
+	}
+}
