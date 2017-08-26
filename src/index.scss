@@ -5,41 +5,49 @@ $br: 5px;
 $shadow: 0 8px 17px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 $roboto: 'Roboto', sans-serif;
 $robotoSlab: 'Roboto Slab', serif;
+$dark: rgba(0,0,0,.7);
+$Blue: #0872c9;
+strong {
+	font-weight:bold
+}
 html {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+12,f9f9f9+12,e0dede+100 */
-	background: #f9f9f9; /* Old browsers */
-	background: -moz-radial-gradient(center, ellipse cover,  #f9f9f9 12%, #f9f9f9 12%, #e0dede 100%); /* FF3.6-15 */
-	background: -webkit-radial-gradient(center, ellipse cover,  #f9f9f9 12%,#f9f9f9 12%,#e0dede 100%); /* Chrome10-25,Safari5.1-6 */
-	background: radial-gradient(ellipse at center,  #f9f9f9 12%,#f9f9f9 12%,#e0dede 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e0dede',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#edf3f4+34,d5cee0+100 */
+	background: #edf3f4; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #edf3f4 34%, #d5cee0 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover,  #edf3f4 34%,#d5cee0 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center,  #edf3f4 34%,#d5cee0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf3f4', endColorstr='#d5cee0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 	background-size: cover;
 	background-repeat: no-repeat;
 	height:100%;
+	font-family: $roboto;
 }
 .container {
 	width:500px;
 	margin:0 auto;
 }
 h1 {
-	color: rgba(0,0,0,.6);
+	color: rgba(255,255,255,.9);
+	background-color: $dark;
 	font-family: $robotoSlab;
 	font-weight: bold;
+	padding:5px 15px;
+	border-top-right-radius: $br;
+	border-top-left-radius: $br;
+	margin:0;
 }
 .todoWrapper {
 	width:90%;
 	margin:100px auto 0;
-
 	.todoHeader {
-		border-top-right-radius: $br;
-		border-top-left-radius: $br;
 		height:5px;
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#54cde5+0,b453db+51,b453db+51,b453db+70,b453db+83 */
-		background: #54cde5; /* Old browsers */
-		background: -moz-linear-gradient(-45deg,  #54cde5 0%, #b453db 51%, #b453db 51%, #b453db 70%, #b453db 83%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(-45deg,  #54cde5 0%,#b453db 51%,#b453db 51%,#b453db 70%,#b453db 83%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(135deg,  #54cde5 0%,#b453db 51%,#b453db 51%,#b453db 70%,#b453db 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54cde5', endColorstr='#b453db',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-		margin-bottom:10px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2fd0ed+0,0872c9+45,711fe2+100 */
+		background: #2fd0ed; /* Old browsers */
+		background: -moz-linear-gradient(left,  #2fd0ed 0%, #0872c9 45%, #711fe2 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(left,  #2fd0ed 0%,#0872c9 45%,#711fe2 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to right,  #2fd0ed 0%,#0872c9 45%,#711fe2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fd0ed', endColorstr='#711fe2',GradientType=1 ); /* IE6-9 */
+		margin-bottom:5px;
 		box-shadow: $shadow;
 	}
 	.todoContainer {
@@ -49,4 +57,56 @@ h1 {
 		box-shadow: $shadow;
 		padding:15px;
 	}
+}
+.inputForm {
+	input {
+		border-top: none;
+		border-left: none;
+		border-right:none;
+		border-bottom: 1px solid $Blue;
+		width:80%;
+		float:left;
+		display: inline-block;
+		padding:5px;
+		box-sizing:border-box;
+		outline:none;
+	}
+	button {
+		width:19%;
+		display:inline-block;
+		background-color: transparent;
+		border:none;
+		color:$Blue;
+		padding: 5px;
+
+	}
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.todoList {
+	li {
+		list-style: none;
+		margin: none;
+		overflow:hidden;
+		.icons {
+			display:inline-block
+			width:9%
+		}
+		p {
+			display:inline-block;
+			width:80%;
+
+			small {
+				display:block
+			}
+		}
+	}
+
 }
