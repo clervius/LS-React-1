@@ -91,20 +91,57 @@ h1 {
   height: 0;
 }
 .todoList {
+	padding: 0;
+
 	li {
 		list-style: none;
 		margin: none;
 		overflow:hidden;
-		.icons {
-			display:inline-block
-			width:9%
+		border-bottom:1px solid rgba(0,0,0,.04);
+		transition: all 0.5s ease;
+		&:hover  {
+			.icons.delete {
+				visibility: visible;
+  				opacity: 1;
+			}
 		}
+
+		.icons {
+			display:inline-block;
+			width:9%;
+			transition: all 0.5s ease;
+			border-radius: $br;
+			padding:3px;
+			box-sizing:border-box;
+			position: relative;
+			top:-9px;
+			font-size:20px;
+			text-align: center;
+
+			&:hover {
+				cursor:pointer;
+				background-color: rgba(0,0,0,.05);
+			}
+		}
+		.icons.delete {
+			visibility: hidden;
+			-webkit-transition: opacity 300ms, visibility 300ms;
+			transition: opacity 300ms, visibility 300ms;
+			opacity: 0;
+			color:red;
+
+
+		}
+
 		p {
 			display:inline-block;
-			width:80%;
+			width:75%;
+			color: rgba(0,0,0,.5);
+			padding-left:10px;
+			border-box:box-sizing;
 
 			small {
-				display:block
+				display:block;
 			}
 		}
 	}
