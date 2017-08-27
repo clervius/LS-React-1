@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const NewItemInput = (props) => {
 	return (
-			<form className="inputForm">
+			<form className="inputForm" onSubmit={(event) => props.handleSubmit(event)}>
 				<input type="text" name="newItem" placeholder="Type new task here..."/>
-				<button>Add Item</button>
+				<button type="submit">Add Item</button>
 			</form>
 		)
 }
