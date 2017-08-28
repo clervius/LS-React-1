@@ -26,6 +26,9 @@ html {
 	width:500px;
 	margin:0 auto;
 }
+.strike {
+	text-decoration: line-through;
+}
 h1 {
 	color: rgba(255,255,255,.9);
 	background-color: $dark;

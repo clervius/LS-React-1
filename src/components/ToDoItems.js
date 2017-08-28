@@ -16,7 +16,9 @@ const ToDoItems = (props) => {
 							title={(todo.completed ? "Mark as incomplete" : "Mark as completed")}
 							></i>						
 					</div>
-					<p>{todo.task}
+					<p 	onClick={() => (todo.completed? props.setIncomplete(todo.id) : props.setComplete(todo.id) )}
+						className={todo.completed? "strike" : ""}>
+						{todo.task}
 						<small>
 							<strong>Created: </strong> {formatDate(todo.created)}
 						</small>

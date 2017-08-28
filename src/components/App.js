@@ -5,7 +5,6 @@ import ToDoItems from './ToDoItems';
 class App extends Component {
 	constructor () {
 		super();
-		this.getTodos();
 		this.state = {
 			todos: []
 		};
@@ -14,18 +13,6 @@ class App extends Component {
 		this.findItem = this.findItem.bind(this);
 		this.setComplete = this.setComplete.bind(this);
 		this.setIncomplete = this.setIncomplete.bind(this);
-	}
-	getTodos() {
-		let todos = [];
-		const storageItems = Object.keys(localStorage)
-		for (let i = 0; i < storageItems.length; i++) {
-			if (storageItems[i].substring(0, 4) === 'todo') {
-				todos.push(JSON.parse(localStorage.getItem(storageItems[i])));
-			}
-		}
-		this.setState({
-			todos,
-		})
 	}
 	handleSubmit(event) {
 		event.preventDefault();
@@ -88,10 +75,7 @@ class App extends Component {
 				todos,
 			})
 		})
-		
-
 	};
-
 	render() {
 		return (
 			<div className="container">
