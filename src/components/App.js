@@ -5,21 +5,9 @@ import ToDoItems from './ToDoItems';
 class App extends Component {
 	constructor () {
 		super();
+		this.getTodos();
 		this.state = {
-			todos: [
-				{
-					id: 0,
-					task: 'This is an example task',
-					created: new Date(),
-					completed: false
-				},
-				{
-					id: 1,
-					task: 'This is an another task',
-					created: new Date(),
-					completed: false
-				}
-			]
+			todos: []
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.deleteItem = this.deleteItem.bind(this);
@@ -27,9 +15,19 @@ class App extends Component {
 		this.setComplete = this.setComplete.bind(this);
 		this.setIncomplete = this.setIncomplete.bind(this);
 	}
-
+	getTodos() {
+		let todos = [];
+		const storageItems = Object.keys(localStorage)
+		for (let i = 0; i < storageItems.length; i++) {
+			if (storageItems[i].substring(0, 4) === 'todo') {
+				todos.push(JSON.parse(localStorage.getItem(storageItems[i])));
+			}
+		}
+		this.setState({
+			todos,
+		})
+	}
 	handleSubmit(event) {
-		console.log("Submitted a new form item", event.target.newItem.value);
 		event.preventDefault();
 		const newTodo = {
 			id: this.state.todos.length + 1,
@@ -37,6 +35,7 @@ class App extends Component {
 			created: new Date(),
 			completed: false
 		}
+		localStorage.setItem('todo' + this.state.todos.length + 1, JSON.stringify(newTodo));
 		this.setState({
 			todos: this.state.todos.concat(newTodo)
 		});
@@ -60,31 +59,36 @@ class App extends Component {
 		let todos = this.state.todos;
 		this.findItem(item, todos).then((result) => {
 			todos.splice(result.num,1);
+		}).then(() => {
+			localStorage.removeItem('todo' + result.num);
+			this.setState({
+				todos,
+			})
 		})
-		this.setState({
-			todos,
-		})
+		
 	};
 	setComplete(item) {
-		console.log(`Setting ${item} as completed`);
 		let todos = this.state.todos;
 		this.findItem(item, todos).then((result) => {
 			result.item.completed = true;
+		}).then(() => {
+			this.setState({
+				todos,
+			})
 		})
-		this.setState({
-			todos,
-		})
+		
 
 	};
 	setIncomplete(item) {
-		console.log(`Setting ${item} as incompleted`);
 		let todos = this.state.todos;
 		this.findItem(item, todos).then((result) => {
 			result.item.completed = false;
+		}).then(() => {
+			this.setState({
+				todos,
+			})
 		})
-		this.setState({
-			todos,
-		})
+		
 
 	};
 
